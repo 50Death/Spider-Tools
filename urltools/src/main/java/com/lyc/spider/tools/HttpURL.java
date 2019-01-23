@@ -1,7 +1,6 @@
 package com.lyc.spider.tools;
 
 
-import java.util.HashSet;
 import java.util.Vector;
 
 /**
@@ -36,12 +35,25 @@ public class HttpURL {
      *
      * @return
      */
-    public synchronized String getURL() {
+    public synchronized String popURL() {
         if (url.isEmpty()) {
             throw new NullPointerException();
         }
         String lastURL = url.lastElement();
         url.removeElement(lastURL);
+        return lastURL;
+    }
+
+    /**
+     * 获得最后一个URL，不删除它
+     *
+     * @return
+     */
+    public synchronized String getURL() {
+        if (url.isEmpty()) {
+            throw new NullPointerException();
+        }
+        String lastURL = url.lastElement();
         return lastURL;
     }
 
@@ -63,5 +75,11 @@ public class HttpURL {
         return url.size();
     }
 
-
+    /**
+     * 删除元素
+     * @param element
+     */
+    public synchronized void deleteElement(String element){
+        url.removeElement(element);
+    }
 }

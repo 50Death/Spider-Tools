@@ -1,5 +1,6 @@
 package com.lyc.spider.tools;
 
+import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
@@ -15,6 +16,10 @@ public class GetURLPage {
     private String url;//待爬URL
     private Map<String, String> headers = new HashMap<String, String>();//储存HTTP连接头部Headers
     private int timeout = 10000;//超时时长（默认10秒）
+
+    //设定代理
+    private String host;
+    private int port;
 
     private Document page;//用于存储爬到的html网页
 
@@ -40,13 +45,14 @@ public class GetURLPage {
 
     /**
      * 构造函数 简便设置一个headers，用于快速添加Cookie
+     *
      * @param url
-     * @param id normally equals "Cookie"
+     * @param id    normally equals "Cookie"
      * @param value normally equals [cookie]
      */
-    public GetURLPage(String url, String id, String value){
+    public GetURLPage(String url, String id, String value) {
         this.url = url;
-        this.headers.put(id,value);
+        this.headers.put(id, value);
     }
 
     /**
@@ -59,23 +65,55 @@ public class GetURLPage {
     }
 
     /**
+     * 设定代理
+     *
+     * @param host
+     * @param port
+     */
+    public void setProxy(String host, int port) {
+        this.host = host;
+        this.port = port;
+    }
+
+    /**
      * 得到页面HTML代码
      *
      * @return org.jsoup.nodes.Document
      */
     public Document getPage() {
         try {
-            //当header为空，即不含有添加header
-            if (this.headers.isEmpty()) {
-                page = Jsoup.connect(url).timeout(timeout).get();
-            } else {
-                page = Jsoup.connect(url).headers(headers).timeout(timeout).get();
+            //实例化Connection对象
+            Connection connection = Jsoup.connect(url);
+
+            //判断是否需要添加头部
+            if(!this.headers.isEmpty()){
+                connection.headers(headers);
             }
+
+            //判断是否需要添加代理
+            if(this.host.length()!=0){
+                connection.proxy(host,port);
+            }
+
+            //得到页面
+            page = connection.get();
         } catch (IOException e) {
             e.printStackTrace();
             page = null;
         }
         return page;
+    }
+
+    /**
+     * 设置默认的User-Agent （Google Chrome）
+     */
+    public void setDefaultAgent() {
+        this.headers.put("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36");
+        this.headers.put("Connection", "Keep-Alive");
+        this.headers.put("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8");
+        this.headers.put("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
+        this.headers.put("Accept-Encoding", "gzip, deflate, br");
+        this.headers.put("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36");
     }
 
 }

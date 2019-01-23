@@ -1,11 +1,8 @@
-import com.lyc.spider.tools.imgFetch;
+import com.lyc.spider.tools.DefaultHeaders;
 
 public class Demo {
     public static void main(String[] args){
-        try {
-            Thread.currentThread().join();
-        }catch (InterruptedException e){
-            e.printStackTrace();
-        }
+        DefaultHeaders d = new DefaultHeaders();
+        d.Test();
     }
 }

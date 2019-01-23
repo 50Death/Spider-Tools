@@ -132,7 +132,7 @@ public class imgFetch {
             //当队列为空时退出线程
             while ((urls.getSize()!=0)&&(alreadyDL<=totalNumber)){
 
-                String url = urls.getURL();//获得一个下载链接，获得过程线程安全
+                String url = urls.popURL();//获得一个下载链接，获得过程线程安全
                 String fileName = url.substring(url.lastIndexOf("/")+1,url.length());//取最后一次出现/之后的为文件名
 
                 //判断文件名是否过长
