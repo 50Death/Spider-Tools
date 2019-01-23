@@ -2,7 +2,7 @@
 
 Sipder Tools 是我个人制作的的爬虫工具集，主要封装了一些常用的工具在里面，调用方便，使开发大型爬虫更方便
 
-基于[jsoup](https://mvnrepository.com/artifact/org.jsoup/jsoup/1.11.3)开发而成
+基于[jsoup](https://mvnrepository.com/artifact/org.jsoup/jsoup/1.11.3)[(GitHub)](https://github.com/jhy/jsoup)开发而成
 
 ## 工具列表
 1. [线程安全URL储存器](https://github.com/50Death/Spider-Tools/blob/master/urltools/src/main/java/com/lyc/spider/tools/HttpURL.java)
