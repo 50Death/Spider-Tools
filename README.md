@@ -56,3 +56,8 @@ IntelliJ IDEA
 
 ## Support Me on Patreon
 (https://www.patreon.com/user?u=16747470)
+
+## 更新记录
+* 2019.Jan.24
+*   更新了DefaultHeaders.java 用来获取HTTP请求头部
+*   更新了GetURLPage.java 支持了代理功能
