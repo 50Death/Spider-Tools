@@ -5,10 +5,10 @@ Sipder Tools 是我个人制作的的爬虫工具集，主要封装了一些常�
 基于[jsoup](https://mvnrepository.com/artifact/org.jsoup/jsoup/1.11.3)开发而成
 
 ## 工具列表
-1. 线程安全URL储存器
-2. 抓取完整页面，可自定http头部
-3. html内容筛选，目前可筛 超链接、图片链接
-4. 多线程下载图片
+1. [线程安全URL储存器](https://github.com/50Death/Sipder-Tools/blob/master/urltools/src/main/java/com/lyc/spider/tools/HttpURL.java)
+2. [抓取完整页面，可自定http头部](https://github.com/50Death/Sipder-Tools/blob/master/urltools/src/main/java/com/lyc/spider/tools/GetURLPage.java)
+3. [html内容筛选，目前可筛 超链接、图片链接](https://github.com/50Death/Sipder-Tools/blob/master/urltools/src/main/java/com/lyc/spider/tools/URLFetch.java)
+4. [多线程下载图片](https://github.com/50Death/Sipder-Tools/blob/master/urltools/src/main/java/com/lyc/spider/tools/imgFetch.java)
 5. TODO 多线程下载文档
 6. TODO PhantomJS 和 Selenium 支持
 
