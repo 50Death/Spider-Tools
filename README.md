@@ -9,8 +9,9 @@ Sipder Tools 是我个人制作的的爬虫工具集，主要封装了一些常�
 2. [抓取完整页面，可自定http头部](https://github.com/50Death/Spider-Tools/blob/master/urltools/src/main/java/com/lyc/spider/tools/GetURLPage.java)
 3. [html内容筛选，目前可筛 超链接、图片链接](https://github.com/50Death/Spider-Tools/blob/master/urltools/src/main/java/com/lyc/spider/tools/URLFetch.java)
 4. [多线程下载图片](https://github.com/50Death/Spider-Tools/blob/master/urltools/src/main/java/com/lyc/spider/tools/imgFetch.java)
-5. TODO 多线程下载文档
-6. TODO PhantomJS 和 Selenium 支持
+5. [Http请求头生成器](https://github.com/50Death/Spider-Tools/blob/master/urltools/src/main/java/com/lyc/spider/tools/DefaultHeaders.java)（2019.Jan.24 Updated）
+6. TODO 多线程下载文档
+7. TODO PhantomJS 和 Selenium 支持
 
 ## 使用方式
 
@@ -37,6 +38,9 @@ IntelliJ IDEA
 
 #### imgFetch.java
 多线程下载图片
+
+#### DefaultHeaders.java
+获得Google Chrome 或者从其他数十种Http头部里的随机请求头
 
 ## 使用到的Maven依赖
 ```xml
