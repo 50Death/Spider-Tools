@@ -1,0 +1,7 @@
+com\lyc\spider\tools\URLFetch$Modes.class
+com\lyc\spider\tools\GetURLPage.class
+com\lyc\spider\tools\imgFetch$DownloadIMG.class
+com\lyc\spider\tools\imgFetch$1.class
+com\lyc\spider\tools\imgFetch.class
+com\lyc\spider\tools\HttpURL.class
+com\lyc\spider\tools\URLFetch.class
