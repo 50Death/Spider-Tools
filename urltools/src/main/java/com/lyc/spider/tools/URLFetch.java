@@ -13,6 +13,11 @@ public class URLFetch {
     private String url;//存储待爬URL
     private Map<String, String> headers = new HashMap<String, String>();//储存HTTP Headers
     private int timeout = 10000;//超时时间（默认为10s）
+    private int retry = 0;//连接失败重新尝试次数，默认为0不重连
+
+    private String host;//设置代理服务器地址
+    private int port;//设置代理服务器端口号
+
 
     public enum Modes {links, img}//TODO 设置一个枚举类型用来选择筛选条件
 
@@ -62,6 +67,26 @@ public class URLFetch {
     }
 
     /**
+     * 设置代理
+     *
+     * @param host 服务器
+     * @param port 端口号
+     */
+    public void setProxy(String host, int port) {
+        this.host = host;
+        this.port = port;
+    }
+
+    /**
+     * 设置失败重连次数
+     *
+     * @param retry
+     */
+    public void setRetry(int retry) {
+        this.retry = retry;
+    }
+
+    /**
      * TODO 设置筛选器，all=所有超链接, links=新的网址，img=图片网址
      *
      * @param mode
@@ -86,8 +111,16 @@ public class URLFetch {
             urlPage = new GetURLPage(url, headers);
         }
 
+        //判断是否需要填入代理
+        if (host != null) {
+            urlPage.setProxy(host, port);
+        }
+
         //填入超时设置
         urlPage.setTimeout(timeout);
+
+        //填入重试次数
+        urlPage.setRetry(retry);
 
         //得到页面
         Document page = urlPage.getPage();
@@ -109,7 +142,7 @@ public class URLFetch {
      * @return
      */
     public Vector<String> getUrlsVec() {
-        if(this.urls.isEmpty()){
+        if (this.urls.isEmpty()) {
             getUrls();
         }
         return this.urls;
@@ -125,8 +158,10 @@ public class URLFetch {
     public static Vector<String> urlFilter(Document page, Modes mode) {
         Vector<String> url = new Vector<String>();
         Elements links;
+
         if (mode == Modes.links) {
             links = page.select("a[href]");
+            links.addAll(page.select("link[href]"));//NEW ADD
             for (Element e : links) {
                 String str = e.attr("abs:href");
                 if (str.equals("")) {

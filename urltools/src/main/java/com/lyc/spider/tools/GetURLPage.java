@@ -16,6 +16,7 @@ public class GetURLPage {
     private String url;//待爬URL
     private Map<String, String> headers = new HashMap<String, String>();//储存HTTP连接头部Headers
     private int timeout = 10000;//超时时长（默认10秒）
+    private int retry = 0;//连接失败时重试次数,默认为0不重连
 
     //设定代理
     private String host;
@@ -76,30 +77,45 @@ public class GetURLPage {
     }
 
     /**
+     * 设定连接失败重试次数
+     *
+     * @param retry
+     */
+    public void setRetry(int retry) {
+        this.retry = retry;
+    }
+
+    /**
      * 得到页面HTML代码
      *
      * @return org.jsoup.nodes.Document
      */
     public Document getPage() {
-        try {
-            //实例化Connection对象
-            Connection connection = Jsoup.connect(url);
+        //重试循环
+        for(int i=-1;i<retry;i++) {
+            try {
+                //实例化Connection对象
+                Connection connection = Jsoup.connect(url);
 
-            //判断是否需要添加头部
-            if(!this.headers.isEmpty()){
-                connection.headers(headers);
+                //判断是否需要添加头部
+                if (!this.headers.isEmpty()) {
+                    connection.headers(headers);
+                }
+
+                //判断是否需要添加代理
+                if (this.host != null) {
+                    connection.proxy(host, port);
+                }
+
+                //得到页面
+                page = connection.get();
+
+                //得到页面后退出重试循环
+                break;
+            } catch (IOException e) {
+                e.printStackTrace();
+                page = null;
             }
-
-            //判断是否需要添加代理
-            if(this.host.length()!=0){
-                connection.proxy(host,port);
-            }
-
-            //得到页面
-            page = connection.get();
-        } catch (IOException e) {
-            e.printStackTrace();
-            page = null;
         }
         return page;
     }
