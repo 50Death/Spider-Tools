@@ -59,5 +59,9 @@ IntelliJ IDEA
 
 ## 更新记录
 * 2019.Jan.24
-*   更新了DefaultHeaders.java 用来获取HTTP请求头部
-*   更新了GetURLPage.java 支持了代理功能
+* *  更新了DefaultHeaders.java 用来获取HTTP请求头部
+* *  更新了GetURLPage.java 支持了代理功能
+* 2019.Jan.25
+* *  修复了BUG
+* *  更新了Proxy代理设置
+* *  更新了失败重连策略
