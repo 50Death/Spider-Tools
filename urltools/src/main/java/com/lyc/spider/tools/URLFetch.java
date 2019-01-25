@@ -23,7 +23,8 @@ public class URLFetch {
 
     private Modes mode = Modes.links;//筛选条件存放处, 默认为“可点击超链接”
 
-    private Vector<String> urls = new Vector<String>();//储存结果
+    private Vector<String> urls = new Vector<String>();//储存结果连接
+    private Document page;//储存结果页面
 
     /**
      * 构造函数 只设置url
@@ -123,7 +124,7 @@ public class URLFetch {
         urlPage.setRetry(retry);
 
         //得到页面
-        Document page = urlPage.getPage();
+        page = urlPage.getPage();
 
         //根据筛选模式进行筛选
         this.urls = urlFilter(page, this.mode);
@@ -134,6 +135,18 @@ public class URLFetch {
 
         //返回结果
         return httpURL;
+    }
+
+    /**
+     * 得到完整页面
+     *
+     * @return
+     */
+    public Document getPage() {
+        if (page == null) {
+            getUrls();
+        }
+        return this.page;
     }
 
     /**

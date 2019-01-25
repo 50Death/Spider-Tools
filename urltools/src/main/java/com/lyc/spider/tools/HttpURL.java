@@ -4,7 +4,6 @@ package com.lyc.spider.tools;
 import java.util.Vector;
 
 /**
- * Java Bean
  * 储存URL并线程安全的读取输出URL
  * URL Storage and output, synchronized
  */
@@ -81,5 +80,12 @@ public class HttpURL {
      */
     public synchronized void deleteElement(String element){
         url.removeElement(element);
+    }
+
+    /**
+     * 移除重复元素
+     */
+    public synchronized void removeDuplicate(){
+        url = URLFetch.removeDuplicates(url);
     }
 }

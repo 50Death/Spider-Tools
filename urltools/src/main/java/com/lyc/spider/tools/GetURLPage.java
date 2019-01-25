@@ -23,6 +23,7 @@ public class GetURLPage {
     private int port;
 
     private Document page;//用于存储爬到的html网页
+    private String state;
 
     /**
      * 构造函数，只输入url的情况下无头部默认抓取
