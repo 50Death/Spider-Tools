@@ -13,7 +13,8 @@ Sipder Tools 是我个人制作的的爬虫工具集，主要封装了一些常�
 6. [网页摘要存储器](https://github.com/50Death/Spider-Tools/blob/master/urltools/src/main/java/com/lyc/spider/tools/WebPage.java)    (2019.Jan.25 Updated)
 7. [IP代理池](https://github.com/50Death/Spider-Tools/blob/master/urltools/src/main/java/com/lyc/spider/tools/IPool.java)  (2019.Jan.26 Updated)
 8. [多线程下载文件](https://github.com/50Death/Spider-Tools/blob/master/urltools/src/main/java/com/lyc/spider/tools/UrlDownload.java)  (2019.Jan.27 Updated)
-9. ~~TODO Chrome Headless 和 Selenium 支持~~ (不再进行二次封装)
+9. TODO: Tor的支持
+10. ~~TODO Chrome Headless 和 Selenium 支持~~ (不再进行二次封装)
 
 ## 使用方式
 
