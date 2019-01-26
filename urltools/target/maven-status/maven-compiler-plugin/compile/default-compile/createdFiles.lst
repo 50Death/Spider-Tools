@@ -1,6 +1,8 @@
 com\lyc\spider\tools\URLFetch$Modes.class
 com\lyc\spider\tools\GetURLPage.class
+com\lyc\spider\tools\IPool.class
 com\lyc\spider\tools\WebPage.class
+com\lyc\spider\tools\IPModel.class
 com\lyc\spider\tools\imgFetch$DownloadIMG.class
 com\lyc\spider\tools\DefaultHeaders.class
 com\lyc\spider\tools\imgFetch$1.class
