@@ -30,6 +30,15 @@ public class HttpURL {
     }
 
     /**
+     * 添加一个HttpURL类
+     *
+     * @param httpURL
+     */
+    public synchronized void addURL(HttpURL httpURL) {
+        addURL(httpURL.getAllURL());
+    }
+
+    /**
      * 获得最后一个URL，并删除它
      *
      * @return

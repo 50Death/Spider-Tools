@@ -71,6 +71,21 @@ public class IPool {
     }
 
     /**
+     * 得到所有的代理服务器+端口,以如下格式发出： 127.0.0.1:8080
+     * @return
+     */
+    public Vector<String> getAllProxy(){
+        Vector v = new Vector();
+        for(IPModel ipm: this.ipool){
+            String ip = ipm.ip;
+            String port = String.valueOf(ipm.port);
+            String toAdd = ip+":"+port;
+            v.add(toAdd);
+        }
+        return v;
+    }
+
+    /**
      * 得到大小，用于混合多线程爬取
      * @return
      */
