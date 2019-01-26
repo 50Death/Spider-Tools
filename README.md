@@ -12,7 +12,7 @@ Sipder Tools 是我个人制作的的爬虫工具集，主要封装了一些常�
 5. [Http请求头生成器](https://github.com/50Death/Spider-Tools/blob/master/urltools/src/main/java/com/lyc/spider/tools/DefaultHeaders.java)  (2019.Jan.24 Updated)
 6. [网页摘要存储器](https://github.com/50Death/Spider-Tools/blob/master/urltools/src/main/java/com/lyc/spider/tools/WebPage.java)    (2019.Jan.25 Updated)
 7. [IP代理池](https://github.com/50Death/Spider-Tools/blob/master/urltools/src/main/java/com/lyc/spider/tools/IPool.java)  (2019.Jan.26 Updated)
-8. TODO 多线程下载文档
+8. [多线程下载文件](https://github.com/50Death/Spider-Tools/blob/master/urltools/src/main/java/com/lyc/spider/tools/UrlDownload.java)  (2019.Jan.27 Updated)
 9. ~~TODO Chrome Headless 和 Selenium 支持~~ (不再进行二次封装)
 
 ## 使用方式
@@ -66,6 +66,9 @@ IntelliJ IDEA
 
 TODO：未来将会更新更多代理网站的爬取
 
+#### UrlDownload.java
+文件下载器，多线程
+
 ## 使用到的Maven依赖
 ```xml
 <!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
@@ -73,6 +76,13 @@ TODO：未来将会更新更多代理网站的爬取
     <groupId>org.jsoup</groupId>
     <artifactId>jsoup</artifactId>
     <version>1.11.3</version>
+</dependency>
+
+<!-- 我的另一个Reponsitory, 见 Spider-SlimAPP -->
+<dependency>
+     <groupId>com.lyc.spider.slimapp</groupId>
+     <artifactId>slimapp</artifactId>
+     <version>1.0-SNAPSHOT</version>
 </dependency>
 ```
 ## 请捐赠打赏投食！！！
@@ -95,3 +105,6 @@ TODO：未来将会更新更多代理网站的爬取
 * *  更新了IP代理存储模块
 * *  更新了IP代理池
 * *  更新了IP代理池初始化模块
+* 2019.Jan.27
+* *  修复了部分脏读BUG(NullPointerException)
+* *  更新了多线程下载文件模块
