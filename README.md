@@ -10,8 +10,9 @@ Sipder Tools 是我个人制作的的爬虫工具集，主要封装了一些常�
 3. [html内容筛选，目前可筛 超链接、图片链接](https://github.com/50Death/Spider-Tools/blob/master/urltools/src/main/java/com/lyc/spider/tools/URLFetch.java)
 4. [多线程下载图片](https://github.com/50Death/Spider-Tools/blob/master/urltools/src/main/java/com/lyc/spider/tools/imgFetch.java)
 5. [Http请求头生成器](https://github.com/50Death/Spider-Tools/blob/master/urltools/src/main/java/com/lyc/spider/tools/DefaultHeaders.java)（2019.Jan.24 Updated）
-6. TODO 多线程下载文档
-7. TODO PhantomJS 和 Selenium 支持
+6. [网页摘要存储器](https://github.com/50Death/Spider-Tools/blob/master/urltools/src/main/java/com/lyc/spider/tools/WebPage.java)(2019.Jan.25 Updated)
+7. TODO 多线程下载文档
+8. TODO PhantomJS 和 Selenium 支持
 
 ## 使用方式
 
@@ -65,3 +66,4 @@ IntelliJ IDEA
 * *  修复了BUG
 * *  更新了Proxy代理设置
 * *  更新了失败重连策略
+* *  更新了网页摘要存储器-线程安全
