@@ -49,7 +49,9 @@ IntelliJ IDEA
 
 #### IPModel.java
 代理IP的存储器 存储一个代理IP的 IP地址，端口号，所在地，类型，链接速度，连接时间，存活时间，网站验证时间，IP状态
+
 并提供了验证此IP是否能连通的测试方法
+
 实现了Comparable compareTo接口，可以在IPool中直接排序
 
 #### IPool.java
@@ -57,8 +59,11 @@ IntelliJ IDEA
 
 #### IPoolInitializer.java extends IPool.java
 初始化IP代理池 爬取[西刺代理](https://www.xicidaili.com/nn/)的IP地址并验证 提供了读取本地TXT文件并验证的方法
+
 单线程爬取代理网站[注1]
+
 多线程验证IP是否可用
+
 TODO：未来将会更新更多代理网站的爬取
 
 ## 使用到的Maven依赖
